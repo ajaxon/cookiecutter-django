@@ -45,6 +45,7 @@ newrelic
 
 {% if cookiecutter.use_opbeat == "y" -%}
 # Opbeat agent for performance monitoring
+# http://opbeat.com
 # -----------------------------------------
 opbeat
 {%- endif %}
