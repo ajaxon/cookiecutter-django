@@ -35,7 +35,7 @@ django-autoslug==1.9.3
 # Time zones support
 pytz==2015.7
 
-# Redis support
+# Redis support - cache and celery
 django-redis==4.3.0
 redis>=2.10.0
 
