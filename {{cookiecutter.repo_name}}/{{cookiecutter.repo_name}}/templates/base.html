@@ -1,4 +1,5 @@
-{% raw %}{% load staticfiles i18n %}<!DOCTYPE html>
+{% raw %}{% load staticfiles i18n %}
+<!DOCTYPE html>
 <html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
@@ -32,9 +33,9 @@
 
   </head>
 
-  <body>
-
-    <div class="m-b">
+  <header>
+      {% block header %}
+       <div class="m-b">
       <nav class="navbar navbar-dark navbar-static-top bg-inverse">
         <div class="container">
           <a class="navbar-brand" href="/">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
@@ -75,7 +76,16 @@
       </nav>
     </div>
 
-    <div class="container">
+
+      {% endblock %}
+  </header>
+
+  <body>
+
+
+
+    <!-- MAIN -->
+    <main class="container">
 
       {% if messages %}
           {% for message in messages %}
@@ -87,7 +97,10 @@
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
 
-    </div> <!-- /container -->
+    </main> <!-- /container -->
+
+    <!-- Footer -->
+    <footer>{% block footer %}2015{% endblock %}</footer>
 
     {% block modal %}{% endblock modal %}
 
