@@ -39,6 +39,9 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    {% if cookiecutter.use_rest_framework=="y" %}
+    'rest_framework',
+    {% endif %}
 )
 
 # Apps specific for this project go here.
@@ -206,6 +209,15 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+{% if cookiecutter.use_rest_framework=="y" %}
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+{% endif %}
 
 # Some really nice defaults ALLAUTH
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'

@@ -11,6 +11,7 @@
     "year": "{{ cookiecutter.now[:4] }}",
     "use_whitenoise": "y",
     "use_celery": "n",
+    "use_rest_framework": "n",
     "use_angular": "n",
     "use_mailhog": "n",
     "use_sentry": "n",
