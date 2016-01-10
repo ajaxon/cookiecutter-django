@@ -113,7 +113,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = '{{ cookiecutter.timezone }}'
+TIME_ZONE = 'America/New_York'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
@@ -225,7 +225,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_MIN_LENGTH=5
-
+#ACCOUNT_SIGNUP_FORM_CLASS=
+ACCOUNT_USERNAME_BLACKLIST=['admin','staff','owner','moderator']
 
 # Custom user app defaults
 # Select the correct user model
@@ -238,9 +239,13 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 {% if cookiecutter.use_celery == "y" %}
 ########## CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
-# if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
-INSTALLED_APPS += ('kombu.transport.django',)
+
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
+CELERY_RESULT_BACKEND = env('REDIS_URL')
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/New_York'
 ########## END CELERY
 {% endif %}
 
