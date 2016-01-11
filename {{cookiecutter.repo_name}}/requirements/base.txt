@@ -11,14 +11,14 @@ whitenoise==2.0.6
 
 # Forms
 django-braces==1.8.1
-django-crispy-forms==1.5.2
+django-crispy-forms==1.6.0
 #django-floppyforms==1.6.0
 
 # Models
 django-model-utils==2.3.1
 
 # Images
-Pillow==3.0.0
+Pillow==3.1.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
