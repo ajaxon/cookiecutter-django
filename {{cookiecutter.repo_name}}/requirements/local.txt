@@ -18,3 +18,8 @@ django-debug-toolbar==1.4
 
 # improved REPL
 ipdb==0.8.1
+
+
+{% if cookiecutter.bdd_testing == 'y' -%}
+behave==1.2.5
+{%- endif %}

@@ -13,7 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('{{ cookiecutter.repo_name }}')
+APPS_DIR = ROOT_DIR.path('apps')
 
 env = environ.Env()
 
@@ -46,7 +46,7 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    '{{ cookiecutter.repo_name }}.users',  # custom users app
+    'apps.users',  # custom users app
     # Your stuff: custom apps go here
 )
 
@@ -238,7 +238,7 @@ LOGIN_URL = 'account_login'
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 {% if cookiecutter.use_celery == "y" %}
 ########## CELERY
-INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
+INSTALLED_APPS += ('apps.taskapp.celery.CeleryConfig',)
 
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 CELERY_RESULT_BACKEND = env('REDIS_URL')

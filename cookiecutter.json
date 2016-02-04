@@ -12,6 +12,7 @@
     "use_whitenoise": "y",
     "use_celery": "n",
     "use_rest_framework": "n",
+    "bdd_testing": "n",
     "use_angular": "n",
     "use_mailhog": "n",
     "use_sentry": "n",
