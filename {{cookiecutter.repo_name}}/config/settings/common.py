@@ -225,8 +225,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_MIN_LENGTH=5
-#ACCOUNT_SIGNUP_FORM_CLASS=
+ACCOUNT_SIGNUP_FORM_CLASS='apps.users.forms.MySignUpForm'
 ACCOUNT_USERNAME_BLACKLIST=['admin','staff','owner','moderator']
+ACCOUNT_LOGOUT_ON_GET=True
 
 # Custom user app defaults
 # Select the correct user model
