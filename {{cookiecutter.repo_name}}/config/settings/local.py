@@ -73,4 +73,4 @@ CELERY_ALWAYS_EAGER = True
 # Behave
 {% if cookiecutter.use_bdd == 'y' %}
 INSTALLED_APPS += ('behave_django',)
-{% endif}
+{% endif %}
