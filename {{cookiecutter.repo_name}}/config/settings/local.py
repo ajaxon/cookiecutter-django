@@ -71,6 +71,6 @@ CELERY_ALWAYS_EAGER = True
 # Your local stuff: Below this line define 3rd party library settings
 
 # Behave
-{% if cookiecutter.use_bdd == 'y' %}
+{% if cookiecutter.bdd_testing == 'y' %}
 INSTALLED_APPS += ('behave_django',)
 {% endif %}
